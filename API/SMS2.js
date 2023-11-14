@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.get('/', (req, res) => {
     SMS();
-    ZAP()
+    ZAP();
     res.json({SMS});
 });
 
@@ -19,7 +19,7 @@ function SMS() {
 
 client.messages
     .create({
-        body: 'SOS',
+        body: 'FERIMENTO GRAVE',
         from: '+18638772899',
         to: '+5562996573143'
     })
@@ -28,19 +28,20 @@ client.messages
 }
 
 function ZAP() {
-const accountSid = 'ACd68e2be3db6bff141af41d5d80668270';
-const authToken = '50fbbe85962926aef0a8b0c90550594a';
-const client = require('twilio')(accountSid, authToken);
+    const accountSid = 'ACd68e2be3db6bff141af41d5d80668270';
+    const authToken = '50fbbe85962926aef0a8b0c90550594a';
+    const client = require('twilio')(accountSid, authToken);
+    
+    client.messages
+        .create({
+            body: 'FERIMENTO GRAVE',
+            from: 'whatsapp:+14155238886',
+            to: 'whatsapp:+556296573143'
+        })
+        .then(message => console.log(message.sid))
+        .catch();
+    }
 
-client.messages
-    .create({
-        body: 'SOS',
-        from: 'whatsapp:+14155238886',
-        to: 'whatsapp:+556296573143'
-    })
-    .then(message => console.log(message.sid))
-    .catch();
-}
 app.listen(port, '192.168.1.104', () => console.log(`Example app listening on port ${port}!`));
 
 module.exports = SMS;

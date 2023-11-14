@@ -17,10 +17,21 @@ const styles = StyleSheet.create({
     },
    
     button: {
+      margin: 10,
       width: 200,
       height: 200,
       borderRadius: 100,
       backgroundColor: 'red',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+    button2: {
+      margin: 10,
+      width: 200,
+      height: 200,
+      borderRadius: 100,
+      backgroundColor: 'green',
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -29,6 +40,13 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       color: 'white',
     },
+
+    buttonText2: {
+      fontSize: 30,
+      fontWeight: 'bold',
+      color: 'white',
+    },
+    
     conftext: {
       fontSize: 24,
       fontWeight: 'bold',
